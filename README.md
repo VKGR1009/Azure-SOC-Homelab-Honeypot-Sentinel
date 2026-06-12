@@ -1,5 +1,3 @@
-# Azure-SOC-Homelab-Honeypot-Sentinel
-Built a cloud-based SOC homelab in Microsoft Azure using a Windows honeypot, Log Analytics Workspace, Microsoft Sentinel, KQL, and attack map visualization for security monitoring and threat detection.
 # Azure SOC Homelab using Honeypot and Microsoft Sentinel
 
 ## Overview
@@ -14,14 +12,14 @@ This lab provides hands-on experience with SIEM operations, log analysis, cloud 
 
 ## Project Objectives
 
-* Deploy a Windows virtual machine in Microsoft Azure.
-* Configure the VM as a honeypot.
-* Collect Windows Security Event Logs.
-* Forward logs to Azure Log Analytics Workspace.
-* Connect Microsoft Sentinel to the environment.
-* Analyze security events using Kusto Query Language (KQL).
-* Enrich attacker IP addresses with GeoIP data.
-* Visualize attacks on a geographic attack map.
+* Deploy a Windows virtual machine in Microsoft Azure
+* Configure the VM as a honeypot
+* Collect Windows Security Event Logs
+* Forward logs to Azure Log Analytics Workspace
+* Connect Microsoft Sentinel to the environment
+* Analyze security events using Kusto Query Language (KQL)
+* Enrich attacker IP addresses with GeoIP data
+* Visualize attacks on a geographic attack map
 
 ---
 
@@ -83,23 +81,19 @@ KQL Analysis & Attack Map
 
 ### 1. Azure Environment Setup
 
-* Created Azure subscription.
-* Created Resource Group.
-* Configured Virtual Network (VNet).
-* Deployed Windows Server Virtual Machine.
-
----
+* Created an Azure Resource Group
+* Configured Virtual Network (VNet)
+* Deployed a Windows Server Virtual Machine
+* Configured networking and public access
 
 ### 2. Honeypot Configuration
 
-* Configured a public IP address.
-* Allowed inbound RDP traffic.
-* Modified Network Security Group rules.
-* Disabled Windows Firewall for testing purposes.
+* Assigned a public IP address
+* Allowed inbound RDP traffic
+* Configured Network Security Group rules
+* Generated security events through internet exposure
 
-The VM was intentionally exposed to attract malicious login attempts and generate security events.
-
----
+The virtual machine was intentionally exposed to attract unauthorized login attempts and generate security telemetry.
 
 ### 3. Log Collection
 
@@ -114,16 +108,12 @@ Key Event IDs monitored:
 | 4634     | Logoff           |
 | 4688     | Process Creation |
 
----
-
 ### 4. Microsoft Sentinel Integration
 
-* Created Log Analytics Workspace.
-* Connected Microsoft Sentinel.
-* Configured Windows Security Events via AMA connector.
-* Verified log ingestion.
-
----
+* Created a Log Analytics Workspace
+* Connected Microsoft Sentinel
+* Configured Windows Security Events via AMA Connector
+* Verified successful log ingestion
 
 ### 5. KQL Log Analysis
 
@@ -135,7 +125,7 @@ SecurityEvent
 | order by TimeGenerated desc
 ```
 
-Example query to count failed logins:
+Example query used to count failed logins:
 
 ```kql
 SecurityEvent
@@ -144,22 +134,16 @@ SecurityEvent
 | order by FailedAttempts desc
 ```
 
----
-
 ### 6. GeoIP Enrichment
 
-A GeoIP watchlist was imported into Microsoft Sentinel to enrich attacker IP addresses with location data.
+A GeoIP watchlist was imported into Microsoft Sentinel to enrich attacker IP addresses with geographic information.
 
-This allowed identification of:
+This enabled identification of:
 
 * Source Country
 * Source City
 * Latitude
 * Longitude
-
-for incoming attacks.
-
----
 
 ### 7. Attack Map Visualization
 
@@ -167,10 +151,46 @@ A Microsoft Sentinel Workbook was created to display attack activity geographica
 
 The attack map visualized:
 
-* Source countries
-* Source IP addresses
-* Failed login attempts
-* Global attack distribution
+* Source Countries
+* Source IP Addresses
+* Failed Login Attempts
+* Global Attack Distribution
+
+---
+
+## Screenshots
+
+### 1. SOC Architecture
+
+![SOC Architecture](screenshots/01-soc-architecture.png)
+
+### 2. Azure Virtual Machine Deployment
+
+![VM Deployment](screenshots/02-vm-deployment-review.png)
+
+### 3. Resource Group Overview
+
+![Resource Group](screenshots/03-resource-group-overview.png)
+
+### 4. Failed Login Events (Event ID 4625)
+
+![Failed Logins](screenshots/04-event-id-4625-failed-logins.png)
+
+### 5. Log Analytics Workspace Security Logs
+
+![Log Analytics](screenshots/05-log-analytics-workspace-logs.png)
+
+### 6. GeoIP Watchlist Import
+
+![GeoIP Watchlist](screenshots/06-geoip-watchlist-import.png)
+
+### 7. GeoIP Enriched Security Events
+
+![GeoIP Enriched Events](screenshots/07-geoip-enriched-security-events.png)
+
+### 8. Microsoft Sentinel Attack Map
+
+![Attack Map](screenshots/08-sentinel-attack-map.png)
 
 ---
 
@@ -179,15 +199,15 @@ The attack map visualized:
 ### Cloud Security
 
 * Azure Administration
-* Virtual Networking
 * Resource Management
+* Virtual Networking
 
 ### Security Operations
 
 * SIEM Administration
 * Threat Monitoring
 * Event Analysis
-* Security Alert Investigation
+* Security Investigation
 
 ### Log Analysis
 
@@ -202,40 +222,39 @@ The attack map visualized:
 
 ---
 
-## Screenshots
-
-Project Screenshots
-
-1. SOC Architecture
-2. Azure Virtual Machine Deployment
-3. Azure Resource Group and Resources
-4. Windows Event Viewer - Failed Login Events (Event ID 4625)
-5. Log Analytics Workspace Security Logs
-6. GeoIP Watchlist Import
-7. GeoIP Enriched Security Events
-8. Microsoft Sentinel Attack Map
-
----
-
 ## Key Learnings
 
-* Understanding Azure cloud infrastructure.
-* Deploying and managing virtual machines.
-* Collecting and forwarding security logs.
-* Using Microsoft Sentinel for security monitoring.
-* Writing KQL queries for threat investigation.
-* Enriching security data with threat intelligence.
-* Visualizing attacker behavior using Sentinel Workbooks.
+* Understanding Azure cloud infrastructure
+* Deploying and managing virtual machines
+* Collecting and forwarding security logs
+* Using Microsoft Sentinel for security monitoring
+* Writing KQL queries for threat investigation
+* Enriching security data with GeoIP intelligence
+* Visualizing attacker activity using Sentinel Workbooks
 
 ---
 
 ## Future Improvements
 
-* Create custom Sentinel analytics rules.
-* Configure automated incident response.
-* Integrate threat intelligence feeds.
-* Simulate real-world attack scenarios.
-* Perform threat hunting using advanced KQL queries.
+* Create custom Sentinel Analytics Rules
+* Configure Automated Incident Response
+* Integrate Threat Intelligence Feeds
+* Simulate Real-World Attack Scenarios
+* Perform Advanced Threat Hunting with KQL
+
+---
+
+## Repository Structure
+
+```text
+Azure-SOC-Homelab-Honeypot-Sentinel/
+│
+├── architecture/
+├── kql-queries/
+├── screenshots/
+├── README.md
+└── LICENSE
+```
 
 ---
 
@@ -243,3 +262,4 @@ Project Screenshots
 
 Vishal Kumar R
 
+Cybersecurity Enthusiast | SOC Analyst Aspirant | Cloud Security Learner
