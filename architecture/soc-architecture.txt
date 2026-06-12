@@ -1,0 +1,16 @@
+Internet
+    |
+    v
+Windows Honeypot VM
+    |
+    v
+Azure Monitor Agent
+    |
+    v
+Log Analytics Workspace
+    |
+    v
+Microsoft Sentinel
+    |
+    v
+Attack Map Dashboard
