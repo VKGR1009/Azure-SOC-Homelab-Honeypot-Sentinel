@@ -204,25 +204,16 @@ The attack map visualized:
 
 ## Screenshots
 
-### Azure Virtual Machine
+Project Screenshots
 
-![VM Screenshot](screenshots/vm-overview.png)
-
-### Log Analytics Workspace
-
-![LAW Screenshot](screenshots/log-analytics.png)
-
-### Microsoft Sentinel
-
-![Sentinel Screenshot](screenshots/sentinel-overview.png)
-
-### Failed Login Events
-
-![4625 Events](screenshots/event-4625.png)
-
-### Attack Map
-
-![Attack Map](screenshots/attack-map.png)
+1. SOC Architecture
+2. Azure Virtual Machine Deployment
+3. Azure Resource Group and Resources
+4. Windows Event Viewer - Failed Login Events (Event ID 4625)
+5. Log Analytics Workspace Security Logs
+6. GeoIP Watchlist Import
+7. GeoIP Enriched Security Events
+8. Microsoft Sentinel Attack Map
 
 ---
 
